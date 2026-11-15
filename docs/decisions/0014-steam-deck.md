@@ -75,8 +75,7 @@
   ### Questions that Game Mode raises
 
   1. **Adding to Steam:** In Desktop Mode, the Flatpak's desktop entry is
-     chosen in Steam with "Add a Non-Steam Game" ("Steam Dışı Bir Oyun
-     Ekle" in the Turkish interface). Steam keeps the `flatpak run` command
+     chosen in Steam with "Add a Non-Steam Game". Steam keeps the `flatpak run` command
      as a shortcut. The user can supply the cover, logo and icon images in
      the library by hand; the app itself cannot write them into Steam.
   2. **Window, focus and theme:** Gamescope shows windows one at a time,

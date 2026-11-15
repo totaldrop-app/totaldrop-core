@@ -37,7 +37,7 @@ Za darmo i na otwartych źródłach. Szyfrowanie end-to-end. Bez e-maila, bez nu
 
 - **Wystarczy krótki kod.** Wybierz pliki i otrzymaj kod w rodzaju `7-harbor-rocket`. Przeczytaj go na głos albo pokaż kod QR; druga osoba go wpisuje i pliki docierają.
 - **Szyfrowanie end-to-end, które możesz sprawdzić.** Zanim cokolwiek zostanie przesłane, oba ekrany pokazują te same cztery słowa. Jeśli się różnią, przerwij.
-- **Nie trzeba się nigdzie rejestrować.** Bez konta, e-maila i numeru telefonu. Opcjonalne konta są projektowane tak, by serwer nie przechowywał żadnego konta: trzymają je Twoje urządzenia, a Ty nigdy nie wpisujesz identyfikatora ([projekt](../../docs/hesap.md)).
+- **Nie trzeba się nigdzie rejestrować.** Bez konta, e-maila i numeru telefonu. Opcjonalne konta są projektowane tak, by serwer nie przechowywał żadnego konta: trzymają je Twoje urządzenia, a Ty nigdy nie wpisujesz identyfikatora ([projekt](../../docs/accounts.md)).
 - **Prosto z urządzenia na urządzenie, wszędzie.** Serwer spotkań tylko przedstawia sobie dwa urządzenia i nie prowadzi logów; jak każdy serwer widzi ich adresy IP. Urządzenia łączą się bezpośrednio przez internet wszędzie, gdzie to możliwe. Gdy przeszkadza router lub zapora, ruch przenosi serwer pośredniczący, który nie może go odczytać.
 - **Jak u siebie w twoim systemie.** Aplikacje podążają za jasnym lub ciemnym motywem systemu, kolorem akcentu, językiem i ustawieniem ograniczenia ruchu. Aplikacja na Linuksa to natywne Qt 6 na Waylandzie, które dodatkowo na bieżąco pobiera czcionki, narożniki i ikony z motywów KDE Plasma, Hyprland i Omarchy.
 - **Za darmo, na zawsze.** Otwarte źródła, finansowane z darowizn. Bez reklam, bez śledzenia, bez płatnej wersji dla podstawowych funkcji.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. Urządzenia łączą się bezpośrednio przez **QUIC** (TLS 1.3 z przypiętymi surowymi kluczami publicznymi) i wykonują **Noise XXpsk3 z ML-KEM-768**, który zaprojektowano tak, by wytrzymał także przyszłe komputery kwantowe.
 4. Pliki są szyfrowane fragmentami (STREAM), więc każdy fragment jest uwierzytelniany w chwili, gdy dociera.
 
-Protokół jest opisany w dokumencie *TotalDrop Protocol v0*. Decyzje podjęte podczas jego implementacji znajdują się w [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), a to, co każdy serwer może, a czego nie może zobaczyć, opisują [model zagrożeń](../../docs/tehdit-modeli.md) (po turecku) i [polityka prywatności](https://totaldrop.app/privacy).
+Protokół jest opisany w dokumencie *TotalDrop Protocol v0*. Decyzje podjęte podczas jego implementacji znajdują się w [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), a to, co każdy serwer może, a czego nie może zobaczyć, opisują [model zagrożeń](../../docs/threat-model.md) i [polityka prywatności](https://totaldrop.app/privacy).
 
 ## W twoim języku
 
 TotalDrop mówi w 35 językach i stosuje formaty liczb twojego regionu. Angielski i turecki są sprawdzone; pozostałe 33 to wersje robocze, które sprawdzają rodzimi użytkownicy, dlatego aplikacje zostawiają teksty dotyczące bezpieczeństwa (weryfikacja, błędny kod, akceptacja i odrzucenie) po angielsku, dopóki dany język nie zostanie sprawdzony. Strona i aplikacje mają je wszystkie, od wersji 0.3.0-beta.1 na Androida i Linuksa.
 
-Zauważyłeś niezgrabne zdanie? [Pomóż w tłumaczeniu](../../docs/ceviri.md).
+Zauważyłeś niezgrabne zdanie? [Pomóż w tłumaczeniu](../../docs/translation.md).
 
 ## Wesprzyj projekt
 
@@ -102,7 +102,7 @@ Możesz też pomóc, [zgłaszając błędy](https://github.com/totaldrop-app/tot
 | `crates/totaldrop-core` | Silnik klienta: serwer spotkań, QUIC z surowymi kluczami publicznymi, Noise XXpsk3 + ML-KEM-768, transfer | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Teksty interfejsu dla programów w Ruście: wybór języka, komunikaty ICU, liczba mnoga, regionalne formaty liczb | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | Klient wiersza poleceń `totaldrop` | GPL-3.0-or-later |
-| `l10n/` | Wszystkie teksty interfejsu, wspólne dla Androida, Linuksa i CLI ([tłumaczenie](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Wszystkie teksty interfejsu, wspólne dla Androida, Linuksa i CLI ([tłumaczenie](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Aplikacja desktopowa na Linuksa: Qt 6 i QML nad `totaldrop-core`, natywny Wayland | GPL-3.0-or-later |
 | `packaging/` | Pakiety dla Linuksa, każdy format osobno: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Aplikacja na Androida (Flutter); iOS później | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ Możesz też pomóc, [zgłaszając błędy](https://github.com/totaldrop-app/tot
 
 Biblioteki mają licencje permisywne, aby każdy mógł budować na protokole; aplikacje są na GPL, a serwery na AGPL. Zobacz [LICENSING.md](../../LICENSING.md).
 
-Każda platforma ma własną wersję, tag (`linux-v…`, `android-v…`) i proces CI, więc jedną można wydać, nie ruszając pozostałych. Jak działają gałęzie i wydania: [docs/gelistirme.md](../../docs/gelistirme.md) (po turecku) i [docs/versioning.md](../../docs/versioning.md). Zasady projektowe: [docs/tasarim.md](../../docs/tasarim.md) i decyzje architektoniczne: [docs/kararlar](../../docs/kararlar/README.md) (po turecku).
+Każda platforma ma własną wersję, tag (`linux-v…`, `android-v…`) i proces CI, więc jedną można wydać, nie ruszając pozostałych. Jak działają gałęzie i wydania: [docs/development.md](../../docs/development.md) i [docs/versioning.md](../../docs/versioning.md). Zasady projektowe: [docs/design.md](../../docs/design.md) i decyzje architektoniczne: [docs/decisions](../../docs/decisions/README.md).
 
 ### Budowanie
 

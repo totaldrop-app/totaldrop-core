@@ -37,7 +37,7 @@ Ingyenes és nyílt forráskódú. Végpontok közötti titkosítás. Nincs e-ma
 
 - **Csak egy rövid kód kell.** Válaszd ki a fájlokat, és kapsz egy kódot, például `7-harbor-rocket`. Mondd ki hangosan, vagy mutasd meg a QR-kódot; a másik fél beírja, és a fájlok megérkeznek.
 - **Végpontok közötti titkosítás, amelyet ellenőrizni is tudsz.** Mielőtt bármi elindulna, mindkét képernyő ugyanazt a négy szót mutatja. Ha eltérnek, állj meg.
-- **Nincs hová regisztrálni.** Nincs fiók, e-mail-cím vagy telefonszám. Az opcionális fiókokat úgy tervezzük, hogy a szerver egyáltalán ne tároljon fiókot: az eszközeid őrzik, és soha nem kell azonosítót beírnod ([terv](../../docs/hesap.md)).
+- **Nincs hová regisztrálni.** Nincs fiók, e-mail-cím vagy telefonszám. Az opcionális fiókokat úgy tervezzük, hogy a szerver egyáltalán ne tároljon fiókot: az eszközeid őrzik, és soha nem kell azonosítót beírnod ([terv](../../docs/accounts.md)).
 - **Közvetlenül eszközről eszközre, bárhol.** A találkozási szerver csak bemutatja egymásnak a két eszközt, és nem naplóz; mint bármely szerver, látja az IP-címüket. Az eszközök az interneten keresztül mindenhol közvetlenül kapcsolódnak, ahol csak lehet. Ha router vagy tűzfal áll az útban, a forgalmat egy továbbító szerver viszi, amely nem tudja elolvasni.
 - **Otthon érzi magát a rendszereden.** Az alkalmazások követik a rendszer világos vagy sötét témáját, kiemelőszínét, nyelvét és a csökkentett mozgás beállítását. A linuxos alkalmazás natív Qt 6 Waylandön, és a betűtípusokat, a sarkokat és az ikonokat is élőben veszi át a KDE Plasma, a Hyprland és az Omarchy témáiból.
 - **Ingyenes, végleg.** Nyílt forráskódú, adományokból fenntartva. Nincs reklám, nincs követés, nincs fizetős csomag az alapfunkciókhoz.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. Az eszközök közvetlenül kapcsolódnak **QUIC**-en keresztül (TLS 1.3 rögzített nyers nyilvános kulcsokkal), és **Noise XXpsk3-at futtatnak ML-KEM-768-cal**, amelyet úgy terveztek, hogy a jövő kvantumszámítógépeivel szemben is ellenálljon.
 4. A fájlok darabokban titkosítódnak (STREAM), így minden darab hitelesítése megtörténik, amint megérkezik.
 
-A protokoll leírása a *TotalDrop Protocol v0* dokumentumban található. A megvalósítás közben hozott döntések a [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md) fájlban vannak, azt pedig, hogy melyik szerver mit lát és mit nem, a [fenyegetésmodell](../../docs/tehdit-modeli.md) (törökül) és az [adatvédelmi irányelvek](https://totaldrop.app/privacy) írják le.
+A protokoll leírása a *TotalDrop Protocol v0* dokumentumban található. A megvalósítás közben hozott döntések a [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md) fájlban vannak, azt pedig, hogy melyik szerver mit lát és mit nem, a [fenyegetésmodell](../../docs/threat-model.md) és az [adatvédelmi irányelvek](https://totaldrop.app/privacy) írják le.
 
 ## A te nyelveden
 
 A TotalDrop 35 nyelven beszél, és a régiód számformátumait követi. Az angol és a török ellenőrzött; a többi 33 vázlat, amelyet anyanyelvi beszélők ellenőriznek, ezért az alkalmazások a biztonsági szövegeket (ellenőrzés, hibás kód, elfogadás és elutasítás) angolul hagyják, amíg egy nyelv ellenőrzése meg nem történik. A weboldalon és az alkalmazásokban mind megvan, az Android és Linux 0.3.0-beta.1 verziótól kezdve.
 
-Esetlen mondatot találtál? [Segíts a fordításban](../../docs/ceviri.md).
+Esetlen mondatot találtál? [Segíts a fordításban](../../docs/translation.md).
 
 ## Támogasd a projektet
 
@@ -102,7 +102,7 @@ Segíthetsz úgy is, hogy [hibákat jelentesz](https://github.com/totaldrop-app/
 | `crates/totaldrop-core` | Kliensmotor: találkozás a szerveren, QUIC nyers nyilvános kulcsokkal, Noise XXpsk3 + ML-KEM-768, átvitel | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Felületi szövegek a Rust-programokhoz: nyelvválasztás, ICU-üzenetek, többes számú alakok, regionális számformátumok | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | A `totaldrop` parancssori kliens | GPL-3.0-or-later |
-| `l10n/` | Minden felületi szöveg, amelyen az Android, a Linux és a CLI osztozik ([fordítás](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Minden felületi szöveg, amelyen az Android, a Linux és a CLI osztozik ([fordítás](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Linuxos asztali alkalmazás: Qt 6 és QML a `totaldrop-core` fölött, natív Wayland | GPL-3.0-or-later |
 | `packaging/` | Linuxos csomagok, minden formátum külön: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Android-alkalmazás (Flutter); iOS később | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ Segíthetsz úgy is, hogy [hibákat jelentesz](https://github.com/totaldrop-app/
 
 A könyvtárak megengedő licencűek, hogy bárki építhessen a protokollra; az alkalmazások GPL, a szerverek AGPL licencűek. Lásd: [LICENSING.md](../../LICENSING.md).
 
-Minden platformnak saját verziója, címkéje (`linux-v…`, `android-v…`) és CI-munkafolyamata van, így az egyik kiadható a többi érintése nélkül. Hogyan működnek az ágak és a kiadások: [docs/gelistirme.md](../../docs/gelistirme.md) (törökül) és [docs/versioning.md](../../docs/versioning.md). Tervezési szabályok: [docs/tasarim.md](../../docs/tasarim.md) és architekturális döntések: [docs/kararlar](../../docs/kararlar/README.md) (törökül).
+Minden platformnak saját verziója, címkéje (`linux-v…`, `android-v…`) és CI-munkafolyamata van, így az egyik kiadható a többi érintése nélkül. Hogyan működnek az ágak és a kiadások: [docs/development.md](../../docs/development.md) és [docs/versioning.md](../../docs/versioning.md). Tervezési szabályok: [docs/design.md](../../docs/design.md) és architekturális döntések: [docs/decisions](../../docs/decisions/README.md).
 
 ### Összeállítás
 

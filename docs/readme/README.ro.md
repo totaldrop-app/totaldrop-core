@@ -37,7 +37,7 @@ Gratuit și open source. Criptat end-to-end. Fără e-mail, fără număr de tel
 
 - **Ajunge un cod scurt.** Alegeți fișierele și primiți un cod de tipul `7-harbor-rocket`. Citiți-l cu voce tare sau arătați codul QR; cealaltă persoană îl introduce și fișierele sosesc.
 - **Criptat end-to-end, iar dvs. puteți verifica.** Înainte să se transfere ceva, ambele ecrane arată aceleași patru cuvinte. Dacă diferă, opriți-vă.
-- **Nu trebuie să vă înregistrați nicăieri.** Fără cont, e-mail sau număr de telefon. Conturile opționale sunt gândite astfel încât serverul să nu păstreze niciun cont: dispozitivele dvs. îl țin, iar dvs. nu tastați niciodată un identificator ([design](../../docs/hesap.md)).
+- **Nu trebuie să vă înregistrați nicăieri.** Fără cont, e-mail sau număr de telefon. Conturile opționale sunt gândite astfel încât serverul să nu păstreze niciun cont: dispozitivele dvs. îl țin, iar dvs. nu tastați niciodată un identificator ([design](../../docs/accounts.md)).
 - **Direct de pe un dispozitiv pe altul, oriunde.** Serverul de întâlnire doar face prezentările între cele două dispozitive și nu păstrează jurnale; ca orice server, vede adresele lor IP. Dispozitivele se conectează direct prin internet oriunde pot. Când un router sau un firewall stă în cale, traficul este transportat de un server releu care nu îl poate citi.
 - **Ca acasă pe sistemul dumneavoastră.** Aplicațiile urmează tema deschisă sau întunecată a sistemului, culoarea de accent, limba și setarea de reducere a mișcării. Aplicația pentru Linux este Qt 6 nativ pe Wayland și preia în plus, în timp real, fonturile, colțurile și pictogramele din temele KDE Plasma, Hyprland și Omarchy.
 - **Gratuit, definitiv.** Open source și finanțat din donații. Fără reclame, fără urmărire, fără versiune plătită pentru funcțiile de bază.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. Dispozitivele se conectează direct prin **QUIC** (TLS 1.3 cu chei publice brute fixate) și rulează **Noise XXpsk3 cu ML-KEM-768**, care este conceput să reziste și în fața viitoarelor computere cuantice.
 4. Fișierele sunt criptate pe bucăți (STREAM), așa că fiecare bucată este autentificată pe măsură ce sosește.
 
-Protocolul este descris în *TotalDrop Protocol v0*. Deciziile luate la implementarea lui se află în [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), iar ce poate și ce nu poate vedea fiecare server este descris în [modelul de amenințări](../../docs/tehdit-modeli.md) (în turcă) și în [politica de confidențialitate](https://totaldrop.app/privacy).
+Protocolul este descris în *TotalDrop Protocol v0*. Deciziile luate la implementarea lui se află în [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), iar ce poate și ce nu poate vedea fiecare server este descris în [modelul de amenințări](../../docs/threat-model.md) și în [politica de confidențialitate](https://totaldrop.app/privacy).
 
 ## În limba dvs.
 
 TotalDrop vorbește 35 de limbi și urmează formatele de numere ale regiunii dvs. Engleza și turca sunt verificate; celelalte 33 sunt ciorne pe care le verifică vorbitori nativi, așa că aplicațiile păstrează textele de securitate (verificare, cod greșit, acceptare și refuz) în engleză până când o limbă este verificată. Site-ul și aplicațiile le au pe toate, începând cu Android și Linux 0.3.0-beta.1.
 
-Ați găsit o frază stângace? [Ajutați la traducere](../../docs/ceviri.md).
+Ați găsit o frază stângace? [Ajutați la traducere](../../docs/translation.md).
 
 ## Susțineți proiectul
 
@@ -102,7 +102,7 @@ Puteți ajuta și [raportând erori](https://github.com/totaldrop-app/totaldrop/
 | `crates/totaldrop-core` | Motorul clientului: întâlnirea prin server, QUIC cu chei publice brute, Noise XXpsk3 + ML-KEM-768, transfer | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Textele interfeței pentru programele Rust: alegerea limbii, mesaje ICU, forme de plural, numere regionale | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | Clientul de linie de comandă `totaldrop` | GPL-3.0-or-later |
-| `l10n/` | Toate textele interfeței, comune pentru Android, Linux și CLI ([traducere](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Toate textele interfeței, comune pentru Android, Linux și CLI ([traducere](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Aplicația desktop pentru Linux: Qt 6 și QML peste `totaldrop-core`, Wayland nativ | GPL-3.0-or-later |
 | `packaging/` | Pachete Linux, fiecare format separat: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Aplicația Android (Flutter); iOS mai târziu | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ Puteți ajuta și [raportând erori](https://github.com/totaldrop-app/totaldrop/
 
 Bibliotecile au licențe permisive, ca oricine să poată construi pe protocol; aplicațiile sunt GPL, iar serverele AGPL. Vedeți [LICENSING.md](../../LICENSING.md).
 
-Fiecare platformă are propria versiune, etichetă (`linux-v…`, `android-v…`) și flux CI, așa că una poate fi lansată fără să le atingă pe celelalte. Cum funcționează ramurile și versiunile: [docs/gelistirme.md](../../docs/gelistirme.md) (în turcă) și [docs/versioning.md](../../docs/versioning.md). Reguli de design: [docs/tasarim.md](../../docs/tasarim.md) și decizii de arhitectură: [docs/kararlar](../../docs/kararlar/README.md) (în turcă).
+Fiecare platformă are propria versiune, etichetă (`linux-v…`, `android-v…`) și flux CI, așa că una poate fi lansată fără să le atingă pe celelalte. Cum funcționează ramurile și versiunile: [docs/development.md](../../docs/development.md) și [docs/versioning.md](../../docs/versioning.md). Reguli de design: [docs/design.md](../../docs/design.md) și decizii de arhitectură: [docs/decisions](../../docs/decisions/README.md).
 
 ### Compilare
 

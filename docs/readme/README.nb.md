@@ -37,7 +37,7 @@ Gratis og åpen kildekode. Ende-til-ende-kryptert. Ingen e-post, intet telefonnu
 
 - **En kort kode er alt som trengs.** Velg filer og få en kode som `7-harbor-rocket`. Les den høyt eller vis QR-koden; den andre personen skriver den inn, og filene kommer fram.
 - **Kryptert ende-til-ende, og du kan sjekke det.** Begge skjermene viser de samme fire ordene før noe overføres. Hvis de er ulike, stopp.
-- **Ingenting å registrere seg for.** Ingen konto, e-post eller telefonnummer. Valgfrie kontoer planlegges slik at serveren ikke lagrer noen konto i det hele tatt: enhetene dine holder den selv, og du skriver aldri inn en ID ([utforming](../../docs/hesap.md)).
+- **Ingenting å registrere seg for.** Ingen konto, e-post eller telefonnummer. Valgfrie kontoer planlegges slik at serveren ikke lagrer noen konto i det hele tatt: enhetene dine holder den selv, og du skriver aldri inn en ID ([utforming](../../docs/accounts.md)).
 - **Rett fra enhet til enhet, hvor som helst.** Møteserveren bare introduserer de to enhetene for hverandre og lagrer ingen logger; som enhver server ser den IP-adressene deres. Enhetene kobler direkte over internett der det er mulig. Når en ruter eller brannmur står i veien, bærer en reléserver trafikken uten å kunne lese den.
 - **Hjemme på systemet ditt.** Appene følger systemets lyse eller mørke tema, aksentfarge, språk og innstilling for redusert bevegelse. Linux-appen er native Qt 6 på Wayland og henter også skrifter, hjørner og ikoner fra temaer i KDE Plasma, Hyprland og Omarchy fortløpende.
 - **Gratis, for godt.** Åpen kildekode, finansiert av donasjoner. Ingen reklame, ingen sporing, ikke noe betalt nivå for det grunnleggende.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. De kobler direkte over **QUIC** (TLS 1.3 med festede rå offentlige nøkler) og kjører **Noise XXpsk3 med ML-KEM-768**, som er utformet for å stå imot fremtidige kvantedatamaskiner.
 4. Filene krypteres i blokker (STREAM), så hver del autentiseres idet den kommer fram.
 
-Protokollen er beskrevet i *TotalDrop Protocol v0*. Beslutninger som ble tatt under implementeringen, står i [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), og hva hver server kan og ikke kan se, står i [trusselmodellen](../../docs/tehdit-modeli.md) (på tyrkisk) og [personvernerklæringen](https://totaldrop.app/privacy).
+Protokollen er beskrevet i *TotalDrop Protocol v0*. Beslutninger som ble tatt under implementeringen, står i [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), og hva hver server kan og ikke kan se, står i [trusselmodellen](../../docs/threat-model.md) og [personvernerklæringen](https://totaldrop.app/privacy).
 
 ## På ditt språk
 
 TotalDrop snakker 35 språk og følger tallformatene i regionen din. Engelsk og tyrkisk er gjennomgått; de andre 33 er utkast som morsmålsbrukere sjekker, så appene beholder sikkerhetstekstene (bekreftelse, feil kode, godta og avslå) på engelsk til et språk er gjennomgått. Nettstedet og appene har dem alle, fra Android og Linux 0.3.0-beta.1.
 
-Har du sett en klønete setning? [Hjelp til med å oversette](../../docs/ceviri.md).
+Har du sett en klønete setning? [Hjelp til med å oversette](../../docs/translation.md).
 
 ## Støtt prosjektet
 
@@ -102,7 +102,7 @@ Du kan også hjelpe ved å [rapportere feil](https://github.com/totaldrop-app/to
 | `crates/totaldrop-core` | Klientmotor: kontakt med møteserveren, QUIC med rå offentlige nøkler, Noise XXpsk3 + ML-KEM-768, overføring | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Grensesnittekst for Rust-programmene: språkforhandling, ICU-meldinger, flertallsformer, regionale tallformater | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | Kommandolinjeklienten `totaldrop` | GPL-3.0-or-later |
-| `l10n/` | Alle grensesnittstrenger, delt av Android, Linux og CLI ([oversettelse](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Alle grensesnittstrenger, delt av Android, Linux og CLI ([oversettelse](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Linux-skrivebordsapp: Qt 6 og QML oppå `totaldrop-core`, native Wayland | GPL-3.0-or-later |
 | `packaging/` | Linux-pakker, hvert format for seg: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Android-app (Flutter); iOS senere | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ Du kan også hjelpe ved å [rapportere feil](https://github.com/totaldrop-app/to
 
 Bibliotekene har tillatende lisenser slik at alle kan bygge videre på protokollen; appene er GPL og serverne AGPL. Se [LICENSING.md](../../LICENSING.md).
 
-Hver plattform har sin egen versjon, sin egen tag (`linux-v…`, `android-v…`) og sin egen CI-arbeidsflyt, så én kan lanseres uten å røre de andre. Slik fungerer brancher og utgivelser: [docs/gelistirme.md](../../docs/gelistirme.md) (på tyrkisk) og [docs/versioning.md](../../docs/versioning.md). Designregler: [docs/tasarim.md](../../docs/tasarim.md) og arkitekturbeslutninger: [docs/kararlar](../../docs/kararlar/README.md) (på tyrkisk).
+Hver plattform har sin egen versjon, sin egen tag (`linux-v…`, `android-v…`) og sin egen CI-arbeidsflyt, så én kan lanseres uten å røre de andre. Slik fungerer brancher og utgivelser: [docs/development.md](../../docs/development.md) og [docs/versioning.md](../../docs/versioning.md). Designregler: [docs/design.md](../../docs/design.md) og arkitekturbeslutninger: [docs/decisions](../../docs/decisions/README.md).
 
 ### Bygg
 

@@ -37,7 +37,7 @@ Gratis en open source. End-to-end versleuteld. Geen e-mail, geen telefoonnummer,
 
 - **Een korte code is genoeg.** Kies bestanden en je krijgt een code zoals `7-harbor-rocket`. Lees hem voor of laat de QR-code zien; de ander typt hem in en de bestanden komen aan.
 - **End-to-end versleuteld, en je kunt het controleren.** Beide schermen tonen dezelfde vier woorden voordat er iets wordt verstuurd. Verschillen ze, stop dan.
-- **Nergens voor aanmelden.** Geen account, e-mail of telefoonnummer. Optionele accounts worden zo ontworpen dat de server helemaal geen account bijhoudt: je apparaten bewaren het zelf en je typt nooit een ID ([ontwerp](../../docs/hesap.md)).
+- **Nergens voor aanmelden.** Geen account, e-mail of telefoonnummer. Optionele accounts worden zo ontworpen dat de server helemaal geen account bijhoudt: je apparaten bewaren het zelf en je typt nooit een ID ([ontwerp](../../docs/accounts.md)).
 - **Rechtstreeks van apparaat naar apparaat, overal.** De ontmoetingsserver stelt de twee apparaten alleen aan elkaar voor en houdt geen logboeken bij; zoals elke server ziet hij hun IP-adressen. Apparaten verbinden waar mogelijk rechtstreeks via het internet. Als een router of firewall in de weg zit, vervoert een relayserver het verkeer zonder het te kunnen lezen.
 - **Thuis op je systeem.** De apps volgen het lichte of donkere thema van het systeem, de accentkleur, de taal en de instelling voor minder beweging. De Linux-app is native Qt 6 op Wayland en neemt daarnaast live de lettertypen, hoeken en pictogrammen over van de thema's van KDE Plasma, Hyprland en Omarchy.
 - **Gratis, voorgoed.** Open source en betaald met donaties. Geen advertenties, geen tracking, geen betaald abonnement voor de basis.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. Ze verbinden rechtstreeks via **QUIC** (TLS 1.3 met vastgepinde ruwe publieke sleutels) en voeren **Noise XXpsk3 met ML-KEM-768** uit, dat is ontworpen om ook toekomstige kwantumcomputers te weerstaan.
 4. Bestanden worden in blokken versleuteld (STREAM), zodat elk stuk bij aankomst wordt geauthenticeerd.
 
-Het protocol is beschreven in *TotalDrop Protocol v0*. Beslissingen die bij de implementatie zijn genomen staan in [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), en wat elke server wel en niet kan zien staat in het [dreigingsmodel](../../docs/tehdit-modeli.md) (in het Turks) en het [privacybeleid](https://totaldrop.app/privacy).
+Het protocol is beschreven in *TotalDrop Protocol v0*. Beslissingen die bij de implementatie zijn genomen staan in [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), en wat elke server wel en niet kan zien staat in het [dreigingsmodel](../../docs/threat-model.md) en het [privacybeleid](https://totaldrop.app/privacy).
 
 ## In jouw taal
 
 TotalDrop spreekt 35 talen en volgt de getalnotatie van jouw regio. Engels en Turks zijn nagekeken; de andere 33 zijn concepten die moedertaalsprekers nu controleren. Daarom houden de apps de beveiligingsteksten (verificatie, verkeerde code, accepteren en weigeren) in het Engels tot een taal is nagekeken. De site en de apps hebben ze allemaal, vanaf Android en Linux 0.3.0-beta.1.
 
-Een onhandige zin gezien? [Help mee met vertalen](../../docs/ceviri.md).
+Een onhandige zin gezien? [Help mee met vertalen](../../docs/translation.md).
 
 ## Steun het project
 
@@ -102,7 +102,7 @@ Je kunt ook helpen door [bugs te melden](https://github.com/totaldrop-app/totald
 | `crates/totaldrop-core` | Client-engine: ontmoeting, QUIC met ruwe publieke sleutels, Noise XXpsk3 + ML-KEM-768, overdracht | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Interfaceteksten voor de Rust-programma's: taalonderhandeling, ICU-berichten, meervouden, regionale getallen | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | De opdrachtregelclient `totaldrop` | GPL-3.0-or-later |
-| `l10n/` | Alle interfaceteksten, gedeeld door Android, Linux en de CLI ([vertalen](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Alle interfaceteksten, gedeeld door Android, Linux en de CLI ([vertalen](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Linux-desktopapp: Qt 6 en QML bovenop `totaldrop-core`, native Wayland | GPL-3.0-or-later |
 | `packaging/` | Linux-pakketten, elk formaat apart: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Android-app (Flutter); iOS later | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ Je kunt ook helpen door [bugs te melden](https://github.com/totaldrop-app/totald
 
 De bibliotheken hebben permissieve licenties, zodat iedereen op het protocol kan voortbouwen; de apps zijn GPL en de servers AGPL. Zie [LICENSING.md](../../LICENSING.md).
 
-Elk platform heeft een eigen versie, tag (`linux-v…`, `android-v…`) en CI-workflow, zodat er één kan uitkomen zonder de andere aan te raken. Hoe branches en releases werken: [docs/gelistirme.md](../../docs/gelistirme.md) (in het Turks) en [docs/versioning.md](../../docs/versioning.md). Ontwerpregels: [docs/tasarim.md](../../docs/tasarim.md) en architectuurbeslissingen: [docs/kararlar](../../docs/kararlar/README.md) (in het Turks).
+Elk platform heeft een eigen versie, tag (`linux-v…`, `android-v…`) en CI-workflow, zodat er één kan uitkomen zonder de andere aan te raken. Hoe branches en releases werken: [docs/development.md](../../docs/development.md) en [docs/versioning.md](../../docs/versioning.md). Ontwerpregels: [docs/design.md](../../docs/design.md) en architectuurbeslissingen: [docs/decisions](../../docs/decisions/README.md).
 
 ### Bouwen
 

@@ -37,7 +37,7 @@ Percuma dan sumber terbuka. Disulitkan hujung ke hujung. Tiada e-mel, tiada nomb
 
 - **Cukup dengan kod pendek.** Pilih fail dan dapatkan kod seperti `7-harbor-rocket`. Bacakan kod itu atau tunjukkan kod QR; orang yang satu lagi menaipnya dan fail pun tiba.
 - **Disulitkan hujung ke hujung, dan anda boleh menyemaknya.** Kedua-dua skrin menunjukkan empat perkataan yang sama sebelum apa-apa dihantar. Jika berbeza, berhenti.
-- **Tiada apa-apa untuk didaftarkan.** Tiada akaun, e-mel atau nombor telefon. Akaun pilihan sedang dirancang supaya pelayan langsung tidak menyimpan akaun: peranti anda sendiri yang menyimpannya, dan anda tidak perlu menaip ID ([reka bentuk](../../docs/hesap.md)).
+- **Tiada apa-apa untuk didaftarkan.** Tiada akaun, e-mel atau nombor telefon. Akaun pilihan sedang dirancang supaya pelayan langsung tidak menyimpan akaun: peranti anda sendiri yang menyimpannya, dan anda tidak perlu menaip ID ([reka bentuk](../../docs/accounts.md)).
 - **Terus dari peranti ke peranti, di mana-mana.** Pelayan pertemuan hanya memperkenalkan kedua-dua peranti dan tidak menyimpan log; seperti mana-mana pelayan, ia melihat alamat IP kedua-duanya. Peranti bersambung secara terus melalui internet di mana-mana yang boleh. Apabila penghala atau tembok api menghalang, pelayan geganti membawa trafik yang tidak dapat dibacanya.
 - **Serasi dengan sistem anda.** Aplikasi mengikut tema cerah atau gelap sistem, warna aksen, bahasa dan tetapan kurangkan gerakan. Aplikasi Linux ialah Qt 6 asli pada Wayland dan juga mengambil fon, bucu dan ikon daripada tema KDE Plasma, Hyprland dan Omarchy secara langsung.
 - **Percuma, selama-lamanya.** Sumber terbuka dan dibiayai oleh derma. Tiada iklan, tiada penjejakan, tiada pakej berbayar untuk ciri asas.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. Peranti bersambung secara terus melalui **QUIC** (TLS 1.3 dengan kunci awam mentah yang disematkan) dan menjalankan **Noise XXpsk3 dengan ML-KEM-768**, yang direka bentuk untuk bertahan terhadap komputer kuantum masa depan.
 4. Fail disulitkan dalam cebisan (STREAM), jadi setiap bahagian disahkan sebaik sahaja ia tiba.
 
-Protokol ini diterangkan dalam *TotalDrop Protocol v0*. Keputusan yang dibuat semasa melaksanakannya ada dalam [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), dan apa yang boleh dan tidak boleh dilihat oleh setiap pelayan ada dalam [model ancaman](../../docs/tehdit-modeli.md) (dalam bahasa Turki) dan [dasar privasi](https://totaldrop.app/privacy).
+Protokol ini diterangkan dalam *TotalDrop Protocol v0*. Keputusan yang dibuat semasa melaksanakannya ada dalam [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), dan apa yang boleh dan tidak boleh dilihat oleh setiap pelayan ada dalam [model ancaman](../../docs/threat-model.md) dan [dasar privasi](https://totaldrop.app/privacy).
 
 ## Dalam bahasa anda
 
 TotalDrop tersedia dalam 35 bahasa dan mengikut format nombor wilayah anda. Bahasa Inggeris dan Turki telah disemak; 33 yang lain ialah draf yang sedang disemak oleh penutur asli, jadi aplikasi mengekalkan teks keselamatan (pengesahan, kod salah, terima dan tolak) dalam bahasa Inggeris sehingga sesuatu bahasa selesai disemak. Laman web dan aplikasi mempunyai kesemuanya, mulai Android dan Linux 0.3.0-beta.1.
 
-Terjumpa ayat yang janggal? [Bantu menterjemah](../../docs/ceviri.md).
+Terjumpa ayat yang janggal? [Bantu menterjemah](../../docs/translation.md).
 
 ## Sokong projek ini
 
@@ -102,7 +102,7 @@ Anda juga boleh membantu dengan [melaporkan pepijat](https://github.com/totaldro
 | `crates/totaldrop-core` | Enjin klien: pelayan pertemuan, QUIC dengan kunci awam mentah, Noise XXpsk3 + ML-KEM-768, pemindahan | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Teks antara muka untuk program Rust: rundingan bahasa, mesej ICU, bentuk jamak, nombor serantau | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | Klien baris perintah `totaldrop` | GPL-3.0-or-later |
-| `l10n/` | Setiap rentetan antara muka, dikongsi oleh Android, Linux dan CLI ([menterjemah](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Setiap rentetan antara muka, dikongsi oleh Android, Linux dan CLI ([menterjemah](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Aplikasi desktop Linux: Qt 6 dan QML di atas `totaldrop-core`, Wayland asli | GPL-3.0-or-later |
 | `packaging/` | Pakej Linux, setiap format tersendiri: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Aplikasi Android (Flutter); iOS kemudian | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ Anda juga boleh membantu dengan [melaporkan pepijat](https://github.com/totaldro
 
 Pustaka-pustakanya berlesen permisif supaya sesiapa sahaja boleh membina di atas protokol ini; aplikasinya GPL dan pelayannya AGPL. Lihat [LICENSING.md](../../LICENSING.md).
 
-Setiap platform mempunyai versi, tag (`linux-v…`, `android-v…`) dan aliran kerja CI tersendiri, jadi satu platform boleh dikeluarkan tanpa menyentuh yang lain. Cara cabang dan keluaran berfungsi: [docs/gelistirme.md](../../docs/gelistirme.md) (dalam bahasa Turki) dan [docs/versioning.md](../../docs/versioning.md). Peraturan reka bentuk: [docs/tasarim.md](../../docs/tasarim.md) dan keputusan seni bina: [docs/kararlar](../../docs/kararlar/README.md) (dalam bahasa Turki).
+Setiap platform mempunyai versi, tag (`linux-v…`, `android-v…`) dan aliran kerja CI tersendiri, jadi satu platform boleh dikeluarkan tanpa menyentuh yang lain. Cara cabang dan keluaran berfungsi: [docs/development.md](../../docs/development.md) dan [docs/versioning.md](../../docs/versioning.md). Peraturan reka bentuk: [docs/design.md](../../docs/design.md) dan keputusan seni bina: [docs/decisions](../../docs/decisions/README.md).
 
 ### Bina
 

@@ -37,7 +37,7 @@ Miễn phí và mã nguồn mở. Mã hóa đầu cuối. Không cần email, s�
 
 - **Chỉ cần một mã ngắn.** Chọn tệp và nhận một mã như `7-harbor-rocket`. Đọc mã cho người kia nghe hoặc cho xem mã QR; người kia nhập mã và tệp sẽ đến.
 - **Mã hóa đầu cuối, và bạn tự kiểm tra được.** Cả hai màn hình hiện cùng bốn từ trước khi bất cứ thứ gì được truyền đi. Nếu chúng khác nhau, hãy dừng lại.
-- **Không cần đăng ký gì cả.** Không tài khoản, email hay số điện thoại. Tài khoản tùy chọn đang được thiết kế để máy chủ hoàn toàn không lưu tài khoản nào: thiết bị của bạn tự giữ tài khoản, và bạn không bao giờ phải nhập ID ([thiết kế](../../docs/hesap.md)).
+- **Không cần đăng ký gì cả.** Không tài khoản, email hay số điện thoại. Tài khoản tùy chọn đang được thiết kế để máy chủ hoàn toàn không lưu tài khoản nào: thiết bị của bạn tự giữ tài khoản, và bạn không bao giờ phải nhập ID ([thiết kế](../../docs/accounts.md)).
 - **Thẳng từ thiết bị đến thiết bị, ở bất cứ đâu.** Máy chủ điểm hẹn chỉ giới thiệu hai thiết bị với nhau và không lưu nhật ký; như mọi máy chủ khác, nó thấy địa chỉ IP của hai thiết bị. Thiết bị kết nối trực tiếp qua internet ở bất cứ nơi nào có thể. Khi bộ định tuyến hoặc tường lửa cản trở, máy chủ chuyển tiếp sẽ chuyển lưu lượng mà nó không thể đọc được.
 - **Hòa hợp với hệ thống của bạn.** Các ứng dụng theo chủ đề sáng hoặc tối, màu nhấn, ngôn ngữ và cài đặt giảm chuyển động của hệ thống. Ứng dụng Linux là Qt 6 gốc trên Wayland và còn lấy phông chữ, góc bo và biểu tượng từ chủ đề của KDE Plasma, Hyprland và Omarchy ngay lập tức.
 - **Miễn phí, mãi mãi.** Mã nguồn mở và được duy trì bằng quyên góp. Không quảng cáo, không theo dõi, không có gói trả phí cho các tính năng cơ bản.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. Hai thiết bị kết nối trực tiếp qua **QUIC** (TLS 1.3 với khóa công khai thô được ghim) và chạy **Noise XXpsk3 với ML-KEM-768**, được thiết kế để chống chịu trước các máy tính lượng tử trong tương lai.
 4. Tệp được mã hóa theo từng khối (STREAM), nên mỗi phần đều được xác thực ngay khi đến nơi.
 
-Giao thức được mô tả trong *TotalDrop Protocol v0*. Các quyết định đưa ra khi triển khai nằm trong [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), còn những gì mỗi máy chủ có thể và không thể thấy nằm trong [mô hình mối đe dọa](../../docs/tehdit-modeli.md) (tiếng Thổ Nhĩ Kỳ) và [chính sách quyền riêng tư](https://totaldrop.app/privacy).
+Giao thức được mô tả trong *TotalDrop Protocol v0*. Các quyết định đưa ra khi triển khai nằm trong [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), còn những gì mỗi máy chủ có thể và không thể thấy nằm trong [mô hình mối đe dọa](../../docs/threat-model.md) và [chính sách quyền riêng tư](https://totaldrop.app/privacy).
 
 ## Bằng ngôn ngữ của bạn
 
 TotalDrop có 35 ngôn ngữ và theo định dạng số của khu vực bạn. Tiếng Anh và tiếng Thổ Nhĩ Kỳ đã được xem lại; 33 ngôn ngữ còn lại là bản nháp đang được người bản ngữ kiểm tra, vì vậy các ứng dụng giữ các văn bản bảo mật (xác minh, mã sai, chấp nhận và từ chối) bằng tiếng Anh cho đến khi ngôn ngữ đó được xem lại. Trang web và các ứng dụng đã có đủ tất cả, từ Android và Linux 0.3.0-beta.1.
 
-Thấy một câu vụng về? [Giúp dịch](../../docs/ceviri.md).
+Thấy một câu vụng về? [Giúp dịch](../../docs/translation.md).
 
 ## Ủng hộ dự án
 
@@ -102,7 +102,7 @@ Bạn cũng có thể giúp bằng cách [báo lỗi](https://github.com/totaldr
 | `crates/totaldrop-core` | Bộ máy phía máy khách: điểm hẹn, QUIC với khóa công khai thô, Noise XXpsk3 + ML-KEM-768, truyền tệp | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Văn bản giao diện cho các chương trình Rust: chọn ngôn ngữ, thông điệp ICU, số nhiều, định dạng số theo khu vực | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | Máy khách dòng lệnh `totaldrop` | GPL-3.0-or-later |
-| `l10n/` | Mọi chuỗi giao diện, dùng chung cho Android, Linux và CLI ([dịch](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Mọi chuỗi giao diện, dùng chung cho Android, Linux và CLI ([dịch](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Ứng dụng máy tính Linux: Qt 6 và QML trên nền `totaldrop-core`, Wayland gốc | GPL-3.0-or-later |
 | `packaging/` | Các gói Linux, mỗi định dạng riêng: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Ứng dụng Android (Flutter); iOS sau | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ Bạn cũng có thể giúp bằng cách [báo lỗi](https://github.com/totaldr
 
 Các thư viện dùng giấy phép dễ dãi để bất kỳ ai cũng có thể xây dựng dựa trên giao thức; các ứng dụng dùng GPL và các máy chủ dùng AGPL. Xem [LICENSING.md](../../LICENSING.md).
 
-Mỗi nền tảng có phiên bản, thẻ (`linux-v…`, `android-v…`) và quy trình CI riêng, nên một nền tảng có thể phát hành mà không ảnh hưởng đến các nền tảng khác. Cách hoạt động của nhánh và bản phát hành: [docs/gelistirme.md](../../docs/gelistirme.md) (tiếng Thổ Nhĩ Kỳ) và [docs/versioning.md](../../docs/versioning.md). Quy tắc thiết kế: [docs/tasarim.md](../../docs/tasarim.md) và các quyết định kiến trúc: [docs/kararlar](../../docs/kararlar/README.md) (tiếng Thổ Nhĩ Kỳ).
+Mỗi nền tảng có phiên bản, thẻ (`linux-v…`, `android-v…`) và quy trình CI riêng, nên một nền tảng có thể phát hành mà không ảnh hưởng đến các nền tảng khác. Cách hoạt động của nhánh và bản phát hành: [docs/development.md](../../docs/development.md) và [docs/versioning.md](../../docs/versioning.md). Quy tắc thiết kế: [docs/design.md](../../docs/design.md) và các quyết định kiến trúc: [docs/decisions](../../docs/decisions/README.md).
 
 ### Xây dựng
 

@@ -37,7 +37,7 @@
 
 - **Kısa bir kod yeter.** Dosyaları seçin ve `7-harbor-rocket` gibi bir kod alın. Kodu sesli okuyun ya da QR kodunu gösterin; karşı taraf kodu girer ve dosyalar gelir.
 - **Uçtan uca şifreli ve bunu siz de doğrulayabilirsiniz.** Hiçbir şey aktarılmadan önce iki ekran da aynı dört sözcüğü gösterir. Sözcükler farklıysa durun.
-- **Kaydolacak hiçbir şey yok.** Hesap, e-posta ya da telefon numarası yok. İsteğe bağlı hesaplar, sunucunun hiç hesap tutmayacağı biçimde planlanıyor: hesabı cihazlarınız taşır, hiçbir yere kimlik yazmazsınız ([tasarım](../../docs/hesap.md)).
+- **Kaydolacak hiçbir şey yok.** Hesap, e-posta ya da telefon numarası yok. İsteğe bağlı hesaplar, sunucunun hiç hesap tutmayacağı biçimde planlanıyor: hesabı cihazlarınız taşır, hiçbir yere kimlik yazmazsınız ([tasarım](../../docs/accounts.md)).
 - **Doğrudan cihazdan cihaza, her yerde.** Buluşma sunucusu yalnızca iki cihazı tanıştırır ve kayıt tutmaz; her sunucu gibi, cihazların IP adreslerini görür. Cihazlar internet üzerinden mümkün olan her yerde doğrudan bağlanır. Arada bir modem ya da güvenlik duvarı varsa trafiği, içeriğini okuyamayan bir aktarma sunucusu taşır.
 - **Sisteminizde evindeymiş gibi.** Uygulamalar sistemin açık ya da koyu temasını, vurgu rengini, dilini ve azaltılmış hareket ayarını izler. Linux uygulaması Wayland üzerinde yerel bir Qt 6 uygulamasıdır; yazı tiplerini, köşelerini ve simgelerini de KDE Plasma, Hyprland ve Omarchy temalarından canlı alır.
 - **Ücretsiz, kalıcı olarak.** Açık kaynak, bağışlarla ayakta. Reklam yok, takip yok, temel özellikler için ücretli sürüm yok.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. Cihazlar **QUIC** (sabitlenmiş ham açık anahtarlarla TLS 1.3) üzerinden doğrudan bağlanır ve gelecekteki kuantum bilgisayarlara karşı da dayanacak şekilde tasarlanmış **ML-KEM-768 ile Noise XXpsk3** çalıştırır.
 4. Dosyalar parçalar halinde şifrelenir (STREAM); böylece her parça ulaştığı anda doğrulanır.
 
-Protokol *TotalDrop Protokolü v0* belgesinde anlatılır. Uygulanırken alınan kararlar [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md) dosyasındadır; her sunucunun neyi görüp neyi göremediği ise [tehdit modeli](../../docs/tehdit-modeli.md) ve [gizlilik politikası](https://totaldrop.app/privacy) içinde yer alır.
+Protokol *TotalDrop Protokolü v0* belgesinde anlatılır. Uygulanırken alınan kararlar [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md) dosyasındadır; her sunucunun neyi görüp neyi göremediği ise [tehdit modeli](../../docs/threat-model.md) ve [gizlilik politikası](https://totaldrop.app/privacy) içinde yer alır.
 
 ## Kendi dilinizde
 
 TotalDrop 35 dil konuşur ve bölgenizin sayı biçimlerini izler. İngilizce ve Türkçe gözden geçirildi; diğer 33 dil, ana dili konuşanların kontrol ettiği taslaklardır. Bu yüzden uygulamalar, bir dil gözden geçirilene kadar güvenlik metinlerini (doğrulama, yanlış kod, kabul ve ret) İngilizce gösterir. Android ve Linux 0.3.0-beta.1 sürümünden itibaren hepsi hem sitede hem uygulamalarda var.
 
-Kulağa tuhaf gelen bir cümle mi gördünüz? [Çeviriye yardım edin](../../docs/ceviri.md).
+Kulağa tuhaf gelen bir cümle mi gördünüz? [Çeviriye yardım edin](../../docs/translation.md).
 
 ## Projeye destek olun
 
@@ -102,7 +102,7 @@ TotalDrop, insanlar katkıda bulunduğu için ücretsiz kalıyor. Bağışlar ak
 | `crates/totaldrop-core` | İstemci motoru: buluşma sunucusu, ham açık anahtarlarla QUIC, Noise XXpsk3 + ML-KEM-768, aktarım | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Rust programlarının arayüz metinleri: dil eşleştirme, ICU mesajları, çoğul biçimler, bölgesel sayılar | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | `totaldrop` komut satırı istemcisi | GPL-3.0-or-later |
-| `l10n/` | Android, Linux ve CLI'ın paylaştığı tüm arayüz metinleri ([çeviri](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Android, Linux ve CLI'ın paylaştığı tüm arayüz metinleri ([çeviri](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Linux masaüstü uygulaması: `totaldrop-core` üzerinde Qt 6 ve QML, yerel Wayland | GPL-3.0-or-later |
 | `packaging/` | Linux paketleri, her biçim kendi başına: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Android uygulaması (Flutter); iOS daha sonra | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ TotalDrop, insanlar katkıda bulunduğu için ücretsiz kalıyor. Bağışlar ak
 
 Kütüphaneler serbest lisanslıdır, böylece herkes protokolün üzerine bir şey kurabilir; uygulamalar GPL, sunucular AGPL lisanslıdır. Bkz. [LICENSING.md](../../LICENSING.md).
 
-Her platformun kendi sürümü, etiketi (`linux-v…`, `android-v…`) ve CI iş akışı vardır; böylece biri diğerlerine dokunmadan yayımlanabilir. Dalların ve sürümlerin nasıl işlediği: [docs/gelistirme.md](../../docs/gelistirme.md) ve [docs/versioning.md](../../docs/versioning.md). Tasarım kuralları: [docs/tasarim.md](../../docs/tasarim.md). Mimari kararlar: [docs/kararlar](../../docs/kararlar/README.md).
+Her platformun kendi sürümü, etiketi (`linux-v…`, `android-v…`) ve CI iş akışı vardır; böylece biri diğerlerine dokunmadan yayımlanabilir. Dalların ve sürümlerin nasıl işlediği: [docs/development.md](../../docs/development.md) ve [docs/versioning.md](../../docs/versioning.md). Tasarım kuralları: [docs/design.md](../../docs/design.md). Mimari kararlar: [docs/decisions](../../docs/decisions/README.md).
 
 ### Derleme
 

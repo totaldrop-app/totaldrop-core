@@ -37,7 +37,7 @@ Ilmainen ja avointa lähdekoodia. Päästä päähän salattu. Ei sähköpostia,
 
 - **Lyhyt koodi riittää.** Valitse tiedostot, niin saat koodin, kuten `7-harbor-rocket`. Lue se ääneen tai näytä QR-koodi; toinen henkilö kirjoittaa sen, ja tiedostot saapuvat.
 - **Päästä päähän salattu, ja voit tarkistaa sen.** Molemmat näytöt näyttävät samat neljä sanaa ennen kuin mitään siirretään. Jos ne eroavat, keskeytä.
-- **Ei mitään, mihin rekisteröityä.** Ei tiliä, sähköpostia tai puhelinnumeroa. Valinnaiset tilit suunnitellaan niin, ettei palvelin säilytä tiliä lainkaan: laitteesi pitävät sen itse, eikä sinun tarvitse koskaan kirjoittaa tunnusta ([suunnitelma](../../docs/hesap.md)).
+- **Ei mitään, mihin rekisteröityä.** Ei tiliä, sähköpostia tai puhelinnumeroa. Valinnaiset tilit suunnitellaan niin, ettei palvelin säilytä tiliä lainkaan: laitteesi pitävät sen itse, eikä sinun tarvitse koskaan kirjoittaa tunnusta ([suunnitelma](../../docs/accounts.md)).
 - **Suoraan laitteelta laitteelle, missä tahansa.** Kohtauspalvelin vain esittelee kaksi laitetta toisilleen eikä tallenna lokeja; kuten mikä tahansa palvelin, se näkee niiden IP-osoitteet. Laitteet yhdistävät suoraan internetin yli aina kun voivat. Kun reititin tai palomuuri on tiellä, välityspalvelin kuljettaa liikenteen pystymättä lukemaan sitä.
 - **Kotonaan järjestelmässäsi.** Sovellukset noudattavat järjestelmän vaaleaa tai tummaa teemaa, korostusväriä, kieltä ja vähennetyn liikkeen asetusta. Linux-sovellus on natiivi Qt 6 -sovellus Waylandilla ja ottaa lisäksi fontit, kulmat ja kuvakkeet KDE Plasman, Hyprlandin ja Omarchyn teemoista reaaliajassa.
 - **Ilmainen, pysyvästi.** Avointa lähdekoodia ja lahjoituksilla rahoitettu. Ei mainoksia, ei seurantaa, ei maksullista tasoa perustoiminnoille.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. Laitteet yhdistävät suoraan **QUIC**-yhteydellä (TLS 1.3 kiinnitetyillä raaoilla julkisilla avaimilla) ja ajavat **Noise XXpsk3:n ML-KEM-768:lla**, joka on suunniteltu kestämään myös tulevia kvanttitietokoneita.
 4. Tiedostot salataan lohkoina (STREAM), joten jokainen osa todennetaan sen saapuessa.
 
-Protokolla on kuvattu dokumentissa *TotalDrop Protocol v0*. Toteutuksen aikana tehdyt päätökset ovat tiedostossa [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), ja se, mitä kukin palvelin näkee ja ei näe, on kerrottu [uhkamallissa](../../docs/tehdit-modeli.md) (turkiksi) ja [tietosuojakäytännössä](https://totaldrop.app/privacy).
+Protokolla on kuvattu dokumentissa *TotalDrop Protocol v0*. Toteutuksen aikana tehdyt päätökset ovat tiedostossa [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), ja se, mitä kukin palvelin näkee ja ei näe, on kerrottu [uhkamallissa](../../docs/threat-model.md) ja [tietosuojakäytännössä](https://totaldrop.app/privacy).
 
 ## Omalla kielelläsi
 
 TotalDrop puhuu 35:tä kieltä ja noudattaa alueesi numeromuotoja. Englanti ja turkki on tarkistettu; muut 33 ovat luonnoksia, joita äidinkieliset puhujat tarkistavat, joten sovellukset pitävät tietoturvatekstit (tarkistus, väärä koodi, hyväksy ja hylkää) englanniksi, kunnes kieli on tarkistettu. Sivustolla ja sovelluksissa ne kaikki ovat Androidin ja Linuxin versiosta 0.3.0-beta.1 alkaen.
 
-Huomasitko kömpelön lauseen? [Auta kääntämisessä](../../docs/ceviri.md).
+Huomasitko kömpelön lauseen? [Auta kääntämisessä](../../docs/translation.md).
 
 ## Tue projektia
 
@@ -102,7 +102,7 @@ Voit auttaa myös [ilmoittamalla virheistä](https://github.com/totaldrop-app/to
 | `crates/totaldrop-core` | Asiakasmoottori: kohtauspalvelinyhteys, QUIC raaoilla julkisilla avaimilla, Noise XXpsk3 + ML-KEM-768, siirto | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Rust-ohjelmien käyttöliittymätekstit: kielen neuvottelu, ICU-viestit, monikkomuodot, alueelliset numeromuodot | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | `totaldrop`-komentoriviasiakas | GPL-3.0-or-later |
-| `l10n/` | Kaikki käyttöliittymän merkkijonot, yhteiset Androidille, Linuxille ja CLI:lle ([kääntäminen](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Kaikki käyttöliittymän merkkijonot, yhteiset Androidille, Linuxille ja CLI:lle ([kääntäminen](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Linuxin työpöytäsovellus: Qt 6 ja QML `totaldrop-core`-kirjaston päällä, natiivi Wayland | GPL-3.0-or-later |
 | `packaging/` | Linux-paketit, kukin muoto erikseen: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Android-sovellus (Flutter); iOS myöhemmin | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ Voit auttaa myös [ilmoittamalla virheistä](https://github.com/totaldrop-app/to
 
 Kirjastoilla on sallivat lisenssit, jotta kuka tahansa voi rakentaa protokollan päälle; sovellukset ovat GPL- ja palvelimet AGPL-lisensoituja. Katso [LICENSING.md](../../LICENSING.md).
 
-Jokaisella alustalla on oma versionsa, tagi (`linux-v…`, `android-v…`) ja CI-työnkulku, joten yhden voi julkaista koskematta muihin. Haarojen ja julkaisujen toiminta: [docs/gelistirme.md](../../docs/gelistirme.md) (turkiksi) ja [docs/versioning.md](../../docs/versioning.md). Suunnittelusäännöt: [docs/tasarim.md](../../docs/tasarim.md) ja arkkitehtuuripäätökset: [docs/kararlar](../../docs/kararlar/README.md) (turkiksi).
+Jokaisella alustalla on oma versionsa, tagi (`linux-v…`, `android-v…`) ja CI-työnkulku, joten yhden voi julkaista koskematta muihin. Haarojen ja julkaisujen toiminta: [docs/development.md](../../docs/development.md) ja [docs/versioning.md](../../docs/versioning.md). Suunnittelusäännöt: [docs/design.md](../../docs/design.md) ja arkkitehtuuripäätökset: [docs/decisions](../../docs/decisions/README.md).
 
 ### Rakentaminen
 

@@ -37,7 +37,7 @@
 
 - **短いコードがあれば十分です。** ファイルを選ぶと、`7-harbor-rocket` のようなコードが表示されます。読み上げるか QR コードを見せれば、相手がそれを入力してファイルが届きます。
 - **エンドツーエンドで暗号化され、それを自分で確かめられます。** 何かが送られる前に、両方の画面に同じ4つの単語が表示されます。違っていたら、中止してください。
-- **登録するものは何もありません。** アカウントもメールアドレスも電話番号も不要です。任意のアカウントは、サーバーがアカウントを一切保持しない形で計画しています。アカウントはお使いのデバイスが保持し、IDを入力することはありません（[設計](../../docs/hesap.md)）。
+- **登録するものは何もありません。** アカウントもメールアドレスも電話番号も不要です。任意のアカウントは、サーバーがアカウントを一切保持しない形で計画しています。アカウントはお使いのデバイスが保持し、IDを入力することはありません（[設計](../../docs/accounts.md)）。
 - **どこにいても、デバイスからデバイスへ直接。** 仲介サーバーは2台のデバイスを引き合わせるだけで、ログを残しません。どのサーバーでも同じですが、2台の IP アドレスは見えます。デバイスはインターネット越しに、可能な限り直接つながります。ルーターやファイアウォールが妨げになる場合は、中身を読めないリレーが通信を運びます。
 - **お使いのシステムになじみます。** アプリは、システムのライト／ダークのテーマ、アクセントカラー、言語、動きを減らす設定に従います。Linux アプリは Wayland 上で動くネイティブの Qt 6 アプリで、KDE Plasma、Hyprland、Omarchy のテーマからフォント、角の形、アイコンもリアルタイムで取り込みます。
 - **ずっと無料です。** オープンソースで、寄付によって運営されています。広告なし、追跡なし、基本機能の有料プランもありません。
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. 2台は **QUIC**（ピン留めした生の公開鍵を使う TLS 1.3）で直接つながり、**ML-KEM-768 を組み合わせた Noise XXpsk3** を実行します。これは将来の量子コンピューターにも耐えられるよう設計されています。
 4. ファイルはチャンク単位で暗号化される（STREAM）ため、各部分は届いた時点で認証されます。
 
-プロトコルは *TotalDrop Protocol v0* に記述されています。実装中に下した判断は [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md) に、各サーバーが何を見られて何を見られないかは [脅威モデル](../../docs/tehdit-modeli.md)（トルコ語）と [プライバシーポリシー](https://totaldrop.app/privacy) にまとめています。
+プロトコルは *TotalDrop Protocol v0* に記述されています。実装中に下した判断は [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md) に、各サーバーが何を見られて何を見られないかは [脅威モデル](../../docs/threat-model.md)と [プライバシーポリシー](https://totaldrop.app/privacy) にまとめています。
 
 ## あなたの言語で
 
 TotalDrop は35の言語に対応し、地域の数値形式に従います。英語とトルコ語は確認済みです。残りの33言語はネイティブスピーカーが確認中の下書きのため、アプリでは言語の確認が済むまで、セキュリティに関わる文言（検証、コードの誤り、承認と拒否）を英語のまま表示します。サイトとアプリは、Android と Linux の 0.3.0-beta.1 からすべての言語に対応しています。
 
-ぎこちない文を見つけましたか？[翻訳に協力する](../../docs/ceviri.md)
+ぎこちない文を見つけましたか？[翻訳に協力する](../../docs/translation.md)
 
 ## プロジェクトを支援する
 
@@ -102,7 +102,7 @@ TotalDrop が無料であり続けられるのは、支えてくれる人がい�
 | `crates/totaldrop-core` | クライアントエンジン：仲介、生の公開鍵を使う QUIC、Noise XXpsk3 + ML-KEM-768、転送 | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Rust プログラムのインターフェース文言：言語ネゴシエーション、ICU メッセージ、複数形、地域ごとの数値 | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | `totaldrop` コマンドラインクライアント | GPL-3.0-or-later |
-| `l10n/` | Android、Linux、CLI が共有するすべてのインターフェース文字列（[翻訳について](../../docs/ceviri.md)） | MIT OR Apache-2.0 |
+| `l10n/` | Android、Linux、CLI が共有するすべてのインターフェース文字列（[翻訳について](../../docs/translation.md)） | MIT OR Apache-2.0 |
 | `linux/` | Linux デスクトップアプリ：`totaldrop-core` の上に Qt 6 と QML、ネイティブ Wayland | GPL-3.0-or-later |
 | `packaging/` | Linux パッケージ、形式ごとに独立：Arch（`PKGBUILD`）、Debian（`debian/`）、RPM（`.spec`） | GPL-3.0-or-later |
 | `app/` | Android アプリ（Flutter）。iOS は今後 | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ TotalDrop が無料であり続けられるのは、支えてくれる人がい�
 
 ライブラリは、誰でもプロトコルの上に構築できるよう寛容なライセンスにしています。アプリは GPL、サーバーは AGPL です。詳しくは [LICENSING.md](../../LICENSING.md) を参照してください。
 
-各プラットフォームには独自のバージョン、タグ（`linux-v…`、`android-v…`）、CI ワークフローがあるため、ほかに手を加えずに1つだけをリリースできます。ブランチとリリースの運用：[docs/gelistirme.md](../../docs/gelistirme.md)（トルコ語）と [docs/versioning.md](../../docs/versioning.md)。デザインのルール：[docs/tasarim.md](../../docs/tasarim.md)、アーキテクチャの決定：[docs/kararlar](../../docs/kararlar/README.md)（トルコ語）。
+各プラットフォームには独自のバージョン、タグ（`linux-v…`、`android-v…`）、CI ワークフローがあるため、ほかに手を加えずに1つだけをリリースできます。ブランチとリリースの運用：[docs/development.md](../../docs/development.md)と [docs/versioning.md](../../docs/versioning.md)。デザインのルール：[docs/design.md](../../docs/design.md)、アーキテクチャの決定：[docs/decisions](../../docs/decisions/README.md)。
 
 ### ビルド
 

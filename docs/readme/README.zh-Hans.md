@@ -37,7 +37,7 @@
 
 - **只需一个简短的代码。** 选择文件后，你会得到一个类似 `7-harbor-rocket` 的代码。把它念给对方，或出示二维码；对方输入代码后，文件就会送达。
 - **端到端加密，而且你可以亲自核对。** 在传输任何内容之前，两块屏幕会显示同样的四个单词。如果不一致，请停止。
-- **无需注册任何东西。** 没有账号、邮箱或手机号码。可选账号的设计目标是服务器完全不保存任何账号：账号由你的设备自己保存，你也无需输入任何 ID（[设计](../../docs/hesap.md)）。
+- **无需注册任何东西。** 没有账号、邮箱或手机号码。可选账号的设计目标是服务器完全不保存任何账号：账号由你的设备自己保存，你也无需输入任何 ID（[设计](../../docs/accounts.md)）。
 - **设备直连，身在何处都可以。** 中介服务器只负责为两台设备牵线，不保留日志；和任何服务器一样，它能看到两台设备的 IP 地址。设备会尽可能通过互联网直接连接。如果路由器或防火墙阻挡，流量会由中继服务器转发，而中继无法读取其内容。
 - **在你的系统上自然融入。** 应用遵循系统的浅色或深色主题、强调色、语言和减少动态效果设置。Linux 应用是运行在 Wayland 上的原生 Qt 6 应用，还会实时从 KDE Plasma、Hyprland 和 Omarchy 的主题中获取字体、圆角和图标。
 - **永久免费。** 开源，由捐赠支持。没有广告，没有追踪，基本功能也没有付费版。
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. 两台设备通过 **QUIC**（使用固定原始公钥的 TLS 1.3）直接连接，并运行 **结合 ML-KEM-768 的 Noise XXpsk3**，其设计旨在抵御未来的量子计算机。
 4. 文件按块加密（STREAM），因此每一块在到达时都会经过认证。
 
-协议记载于 *TotalDrop Protocol v0*。实现过程中做出的决定见 [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md)，每台服务器能看到什么、不能看到什么，见 [威胁模型](../../docs/tehdit-modeli.md)（土耳其语）和 [隐私政策](https://totaldrop.app/privacy)。
+协议记载于 *TotalDrop Protocol v0*。实现过程中做出的决定见 [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md)，每台服务器能看到什么、不能看到什么，见 [威胁模型](../../docs/threat-model.md)和 [隐私政策](https://totaldrop.app/privacy)。
 
 ## 使用你的语言
 
 TotalDrop 支持 35 种语言，并遵循你所在地区的数字格式。英语和土耳其语已经过审校；其余 33 种语言是母语者正在检查的草稿，因此在某种语言审校完成之前，应用会将安全相关的文字（验证、代码错误、接受和拒绝）保留为英文。从 Android 和 Linux 0.3.0-beta.1 起，网站和应用均已提供全部语言。
 
-发现了别扭的句子？[帮助翻译](../../docs/ceviri.md)。
+发现了别扭的句子？[帮助翻译](../../docs/translation.md)。
 
 ## 支持本项目
 
@@ -102,7 +102,7 @@ TotalDrop 能保持免费，是因为大家出手相助。捐款用于支付中�
 | `crates/totaldrop-core` | 客户端引擎：中介连接、使用原始公钥的 QUIC、Noise XXpsk3 + ML-KEM-768、传输 | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Rust 程序的界面文字：语言协商、ICU 消息、复数形式、地区数字格式 | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | `totaldrop` 命令行客户端 | GPL-3.0-or-later |
-| `l10n/` | 所有界面字符串，由 Android、Linux 和 CLI 共享（[翻译说明](../../docs/ceviri.md)） | MIT OR Apache-2.0 |
+| `l10n/` | 所有界面字符串，由 Android、Linux 和 CLI 共享（[翻译说明](../../docs/translation.md)） | MIT OR Apache-2.0 |
 | `linux/` | Linux 桌面应用：基于 `totaldrop-core` 的 Qt 6 和 QML，原生 Wayland | GPL-3.0-or-later |
 | `packaging/` | Linux 软件包，每种格式各自独立：Arch（`PKGBUILD`）、Debian（`debian/`）、RPM（`.spec`） | GPL-3.0-or-later |
 | `app/` | Android 应用（Flutter）；iOS 以后推出 | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ TotalDrop 能保持免费，是因为大家出手相助。捐款用于支付中�
 
 这些库采用宽松许可证，让任何人都能基于该协议进行开发；应用采用 GPL，服务器采用 AGPL。详见 [LICENSING.md](../../LICENSING.md)。
 
-每个平台都有自己的版本、标签（`linux-v…`、`android-v…`）和 CI 工作流，因此一个平台可以单独发布，而不影响其他平台。分支和发布的流程：[docs/gelistirme.md](../../docs/gelistirme.md)（土耳其语）和 [docs/versioning.md](../../docs/versioning.md)。设计规则：[docs/tasarim.md](../../docs/tasarim.md)，架构决策：[docs/kararlar](../../docs/kararlar/README.md)（土耳其语）。
+每个平台都有自己的版本、标签（`linux-v…`、`android-v…`）和 CI 工作流，因此一个平台可以单独发布，而不影响其他平台。分支和发布的流程：[docs/development.md](../../docs/development.md)和 [docs/versioning.md](../../docs/versioning.md)。设计规则：[docs/design.md](../../docs/design.md)，架构决策：[docs/decisions](../../docs/decisions/README.md)。
 
 ### 构建
 

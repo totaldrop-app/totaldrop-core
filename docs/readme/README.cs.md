@@ -37,7 +37,7 @@ Zdarma a s otevřeným kódem. Koncové šifrování. Žádný e-mail, žádné 
 
 - **Stačí krátký kód.** Vyberte soubory a získáte kód jako `7-harbor-rocket`. Přečtěte ho nahlas nebo ukažte QR kód; druhá strana ho zadá a soubory dorazí.
 - **Koncově šifrované, a můžete si to ověřit.** Než se cokoli přenese, obě obrazovky ukážou stejná čtyři slova. Pokud se liší, přestaňte.
-- **Nikde se neregistrujete.** Žádný účet, e-mail ani telefonní číslo. Volitelné účty se navrhují tak, aby server neuchovával vůbec žádný účet: drží ho vaše zařízení a nikdy nezadáváte žádný identifikátor ([návrh](../../docs/hesap.md)).
+- **Nikde se neregistrujete.** Žádný účet, e-mail ani telefonní číslo. Volitelné účty se navrhují tak, aby server neuchovával vůbec žádný účet: drží ho vaše zařízení a nikdy nezadáváte žádný identifikátor ([návrh](../../docs/accounts.md)).
 - **Přímo ze zařízení do zařízení, kdekoli.** Server pro navázání spojení obě zařízení jen seznámí a nevede žádné záznamy; jako každý server vidí jejich IP adresy. Zařízení se přes internet spojí přímo všude, kde to jde. Když překáží router nebo firewall, provoz přenáší zprostředkující server, který ho nemůže přečíst.
 - **Jako doma ve vašem systému.** Aplikace se řídí světlým nebo tmavým motivem systému, barvou zvýraznění, jazykem a nastavením omezení pohybu. Linuxová aplikace je nativní Qt 6 na Waylandu a navíc živě přebírá písma, rohy a ikony z motivů KDE Plasma, Hyprland a Omarchy.
 - **Zdarma, natrvalo.** Otevřený kód, financovaný z darů. Žádné reklamy, žádné sledování, žádná placená verze pro základní funkce.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. Zařízení se spojí přímo přes **QUIC** (TLS 1.3 s připnutými surovými veřejnými klíči) a provedou **Noise XXpsk3 s ML-KEM-768**, který je navržen tak, aby odolal i budoucím kvantovým počítačům.
 4. Soubory se šifrují po částech (STREAM), takže každá část je ověřena hned, jak dorazí.
 
-Protokol popisuje dokument *TotalDrop Protocol v0*. Rozhodnutí učiněná při jeho implementaci jsou v [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md) a co který server může a nemůže vidět, popisují [model hrozeb](../../docs/tehdit-modeli.md) (v turečtině) a [zásady ochrany soukromí](https://totaldrop.app/privacy).
+Protokol popisuje dokument *TotalDrop Protocol v0*. Rozhodnutí učiněná při jeho implementaci jsou v [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md) a co který server může a nemůže vidět, popisují [model hrozeb](../../docs/threat-model.md) a [zásady ochrany soukromí](https://totaldrop.app/privacy).
 
 ## Ve vašem jazyce
 
 TotalDrop mluví 35 jazyky a řídí se formáty čísel vašeho regionu. Angličtina a turečtina jsou zkontrolované; zbývajících 33 jsou koncepty, které kontrolují rodilí mluvčí, a proto aplikace ponechávají bezpečnostní texty (ověření, špatný kód, přijmout a odmítnout) v angličtině, dokud jazyk není zkontrolován. Web i aplikace je mají všechny, od verze 0.3.0-beta.1 pro Android a Linux.
 
-Narazili jste na neobratnou větu? [Pomozte s překladem](../../docs/ceviri.md).
+Narazili jste na neobratnou větu? [Pomozte s překladem](../../docs/translation.md).
 
 ## Podpořte projekt
 
@@ -102,7 +102,7 @@ Pomoci můžete také [hlášením chyb](https://github.com/totaldrop-app/totald
 | `crates/totaldrop-core` | Klientské jádro: navázání spojení, QUIC se surovými veřejnými klíči, Noise XXpsk3 + ML-KEM-768, přenos | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Texty rozhraní pro programy v Rustu: výběr jazyka, zprávy ICU, množná čísla, regionální formáty čísel | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | Klient příkazového řádku `totaldrop` | GPL-3.0-or-later |
-| `l10n/` | Všechny texty rozhraní, společné pro Android, Linux a CLI ([překlad](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Všechny texty rozhraní, společné pro Android, Linux a CLI ([překlad](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Linuxová desktopová aplikace: Qt 6 a QML nad `totaldrop-core`, nativní Wayland | GPL-3.0-or-later |
 | `packaging/` | Balíčky pro Linux, každý formát zvlášť: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Aplikace pro Android (Flutter); iOS později | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ Pomoci můžete také [hlášením chyb](https://github.com/totaldrop-app/totald
 
 Knihovny mají permisivní licence, aby na protokolu mohl stavět kdokoli; aplikace jsou pod GPL a servery pod AGPL. Viz [LICENSING.md](../../LICENSING.md).
 
-Každá platforma má vlastní verzi, tag (`linux-v…`, `android-v…`) a CI workflow, takže jednu lze vydat bez zásahu do ostatních. Jak fungují větve a vydání: [docs/gelistirme.md](../../docs/gelistirme.md) (v turečtině) a [docs/versioning.md](../../docs/versioning.md). Pravidla návrhu: [docs/tasarim.md](../../docs/tasarim.md) a architektonická rozhodnutí: [docs/kararlar](../../docs/kararlar/README.md) (v turečtině).
+Každá platforma má vlastní verzi, tag (`linux-v…`, `android-v…`) a CI workflow, takže jednu lze vydat bez zásahu do ostatních. Jak fungují větve a vydání: [docs/development.md](../../docs/development.md) a [docs/versioning.md](../../docs/versioning.md). Pravidla návrhu: [docs/design.md](../../docs/design.md) a architektonická rozhodnutí: [docs/decisions](../../docs/decisions/README.md).
 
 ### Sestavení
 

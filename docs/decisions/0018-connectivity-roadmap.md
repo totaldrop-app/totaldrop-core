@@ -91,8 +91,8 @@
   stay the same, and only the channel that carries them changes. Each of
   the steps below comes as a separate PR with its own issue, branch, a test
   that shows the bug or the gap, and a device trial. The order follows the
-  gain and the cost; the first three go into the "Sırada" (next) milestone,
-  the rest into "Sonra" (later). In privacy mode (relay only, threat model
+  gain and the cost; the first three go into the "Next" milestone,
+  the rest into "Later". In privacy mode (relay only, threat model
   T6) none of these steps announces addresses or opens ports; the relay
   paths (the Workers relay and the TURN of step 4) are used in privacy mode
   too and see the IP address.

@@ -37,7 +37,7 @@ Bure na chanzo huria. Imesimbwa fiche kutoka mwanzo hadi mwisho. Hakuna barua pe
 
 - **Msimbo mfupi unatosha.** Chagua faili na upate msimbo kama `7-harbor-rocket`. Usome kwa sauti au uonyeshe msimbo wa QR; mtu mwingine anauandika na faili zinafika.
 - **Imesimbwa fiche kutoka mwanzo hadi mwisho, na unaweza kuikagua.** Skrini zote mbili zinaonyesha maneno manne yale yale kabla chochote hakijatumwa. Yakitofautiana, simama.
-- **Hakuna cha kujisajili.** Hakuna akaunti, barua pepe wala nambari ya simu. Akaunti za hiari zinapangwa ili seva isihifadhi akaunti yoyote: vifaa vyako ndivyo vinavyoishikilia, na hutawahi kuandika kitambulisho ([muundo](../../docs/hesap.md)).
+- **Hakuna cha kujisajili.** Hakuna akaunti, barua pepe wala nambari ya simu. Akaunti za hiari zinapangwa ili seva isihifadhi akaunti yoyote: vifaa vyako ndivyo vinavyoishikilia, na hutawahi kuandika kitambulisho ([muundo](../../docs/accounts.md)).
 - **Moja kwa moja kutoka kifaa hadi kifaa, popote.** Seva ya kukutanisha hutambulisha vifaa viwili tu na haihifadhi kumbukumbu; kama seva yoyote, inaona anwani zao za IP. Vifaa huunganishwa moja kwa moja kupitia intaneti popote inapowezekana. Ruta au ngome ikiwa kizuizi, seva ya kati hubeba trafiki ambayo haiwezi kuisoma.
 - **Nyumbani kwenye mfumo wako.** Programu hufuata mandhari ya mwanga au giza ya mfumo, rangi ya msisitizo, lugha na mpangilio wa kupunguza mwendo. Programu ya Linux ni Qt 6 asilia kwenye Wayland na pia huchukua fonti, pembe na aikoni kutoka kwenye mandhari ya KDE Plasma, Hyprland na Omarchy papo hapo.
 - **Bure, daima.** Chanzo huria na inafadhiliwa kwa michango. Hakuna matangazo, hakuna ufuatiliaji, hakuna kiwango cha kulipia kwa mambo ya msingi.
@@ -75,13 +75,13 @@ gh attestation verify totaldrop_0.3.0.beta.6-1_amd64.deb --repo totaldrop-app/to
 3. Vinaunganishwa moja kwa moja kupitia **QUIC** (TLS 1.3 pamoja na funguo ghafi za umma zilizobanwa) na huendesha **Noise XXpsk3 pamoja na ML-KEM-768**, ambayo imeundwa kustahimili kompyuta za kwanta za siku zijazo.
 4. Faili husimbwa fiche kwa vipande (STREAM), kwa hiyo kila kipande huthibitishwa kinapofika.
 
-Itifaki imeelezwa katika *TotalDrop Protocol v0*. Maamuzi yaliyofanywa wakati wa kuitekeleza yako katika [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), na kile ambacho kila seva inaweza na isichoweza kuona kiko katika [mfano wa vitisho](../../docs/tehdit-modeli.md) (kwa Kituruki) na [sera ya faragha](https://totaldrop.app/privacy).
+Itifaki imeelezwa katika *TotalDrop Protocol v0*. Maamuzi yaliyofanywa wakati wa kuitekeleza yako katika [docs/protocol-v0.1-notes.md](../../docs/protocol-v0.1-notes.md), na kile ambacho kila seva inaweza na isichoweza kuona kiko katika [mfano wa vitisho](../../docs/threat-model.md) na [sera ya faragha](https://totaldrop.app/privacy).
 
 ## Katika lugha yako
 
 TotalDrop inapatikana katika lugha 35 na hufuata miundo ya nambari ya eneo lako. Kiingereza na Kituruki vimekaguliwa; zile 33 nyingine ni rasimu ambazo wazungumzaji asilia wanazikagua, kwa hiyo programu huacha maandishi ya usalama (uthibitishaji, msimbo usio sahihi, kukubali na kukataa) kwa Kiingereza hadi lugha ikaguliwe. Tovuti na programu zina zote, kuanzia Android na Linux 0.3.0-beta.1.
 
-Umeona sentensi isiyokaa vizuri? [Saidia kutafsiri](../../docs/ceviri.md).
+Umeona sentensi isiyokaa vizuri? [Saidia kutafsiri](../../docs/translation.md).
 
 ## Saidia mradi
 
@@ -102,7 +102,7 @@ Unaweza pia kusaidia kwa [kuripoti hitilafu](https://github.com/totaldrop-app/to
 | `crates/totaldrop-core` | Injini ya mteja: seva ya kukutanisha, QUIC yenye funguo ghafi za umma, Noise XXpsk3 + ML-KEM-768, uhamishaji | MIT OR Apache-2.0 |
 | `crates/totaldrop-l10n` | Maandishi ya kiolesura kwa programu za Rust: uchaguzi wa lugha, jumbe za ICU, wingi, nambari za kieneo | MIT OR Apache-2.0 |
 | `crates/totaldrop-cli` | Mteja wa mstari wa amri `totaldrop` | GPL-3.0-or-later |
-| `l10n/` | Kila mfuatano wa kiolesura, unaoshirikiwa na Android, Linux na CLI ([kutafsiri](../../docs/ceviri.md)) | MIT OR Apache-2.0 |
+| `l10n/` | Kila mfuatano wa kiolesura, unaoshirikiwa na Android, Linux na CLI ([kutafsiri](../../docs/translation.md)) | MIT OR Apache-2.0 |
 | `linux/` | Programu ya Linux ya eneo-kazi: Qt 6 na QML juu ya `totaldrop-core`, Wayland asilia | GPL-3.0-or-later |
 | `packaging/` | Vifurushi vya Linux, kila muundo peke yake: Arch (`PKGBUILD`), Debian (`debian/`), RPM (`.spec`) | GPL-3.0-or-later |
 | `app/` | Programu ya Android (Flutter); iOS baadaye | GPL-3.0-or-later |
@@ -113,7 +113,7 @@ Unaweza pia kusaidia kwa [kuripoti hitilafu](https://github.com/totaldrop-app/to
 
 Maktaba zina leseni huru ili mtu yeyote aweze kujenga juu ya itifaki; programu ni GPL na seva ni AGPL. Tazama [LICENSING.md](../../LICENSING.md).
 
-Kila mfumo una toleo lake, tagi (`linux-v…`, `android-v…`) na mtiririko wa kazi wa CI, kwa hiyo mmoja unaweza kutolewa bila kugusa mingine. Jinsi matawi na matoleo yanavyofanya kazi: [docs/gelistirme.md](../../docs/gelistirme.md) (kwa Kituruki) na [docs/versioning.md](../../docs/versioning.md). Kanuni za muundo: [docs/tasarim.md](../../docs/tasarim.md) na maamuzi ya usanifu: [docs/kararlar](../../docs/kararlar/README.md) (kwa Kituruki).
+Kila mfumo una toleo lake, tagi (`linux-v…`, `android-v…`) na mtiririko wa kazi wa CI, kwa hiyo mmoja unaweza kutolewa bila kugusa mingine. Jinsi matawi na matoleo yanavyofanya kazi: [docs/development.md](../../docs/development.md) na [docs/versioning.md](../../docs/versioning.md). Kanuni za muundo: [docs/design.md](../../docs/design.md) na maamuzi ya usanifu: [docs/decisions](../../docs/decisions/README.md).
 
 ### Kujenga
 
