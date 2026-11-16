@@ -24,7 +24,7 @@ TotalDrop is recorded here in English ([0019](0019-english-by-default.md)).
 | [0017](0017-personal-sponsors-page.md) | Interim donation collection via project lead's Sponsors & Buy Me a Coffee | Accepted |
 | [0018](0018-connectivity-roadmap.md) | Custom QUIC/relay stack retained; IPv6, UPnP/PCP, and LAN added incrementally | Accepted |
 | [0019](0019-english-by-default.md) | All repositories, issues, reviews, and documents are written in English | Accepted |
-| [0020](0020-modular-subplatform-matrix.md) | 11 modular repositories and 55 isolated sub-platform × CPU architecture units | Accepted |
+| [0020](0020-modular-subplatform-matrix.md) | 11 modular repositories (`53` active sub-platform × CPU units + `1` reserved repository) | Accepted |
 
 To propose a new decision, open an English pull request adding `NNNN-short-name.md`
 and append a row to the table above.

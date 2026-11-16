@@ -1,14 +1,14 @@
-# 0020: Modular 11-repository architecture and 55-unit sub-platform × CPU matrix
+# 0020: Modular 11-repository architecture and sub-platform × CPU matrix
 
-- **Status:** Accepted, 14 November 2026 (Supersedes [0001](0001-one-repository.md))
-- **Context:** As TotalDrop expands across every desktop, mobile, TV, BSD, CLI,
-  and Web platform with an international engineering team, a single monorepo
-  couples unrelated toolchains, slows CI feedback, and blurs ownership across
-  package formats (`deb`, `rpm`, `tar.gz`, `arch`, `flatpak`, `appimage`,
-  `msix`, `winget`, `dmg`, `pkg`, `play-aab`, `fdroid-apk`, `ipa`, `bsd-pkg`,
-  `wasm32`) and CPU architectures (`x86_64`, `arm64`, `riscv64`, `wasm32`).
+- **Status:** Accepted, 14 November 2026 (Supersedes [0001](0001-one-repository.md); updated 16 November 2026 to mark `totaldrop-web-wasm` reserved/shelved per `totaldrop#30`)
+- **Context:** As TotalDrop expands across desktop, mobile, TV, BSD, and CLI
+  platforms with an international engineering team, a single monorepo couples
+  unrelated toolchains, slows CI feedback, and blurs ownership across package
+  formats (`deb`, `rpm`, `tar.gz`, `arch`, `flatpak`, `appimage`, `msix`,
+  `winget`, `dmg`, `pkg`, `play-aab`, `fdroid-apk`, `ipa`, `bsd-pkg`) and CPU
+  architectures (`x86_64`, `arm64`, `riscv64`).
 - **Decision:**
-  1. **11 Standalone Public Repositories under `totaldrop-app`:**
+  1. **11 Standalone Public Repositories under `totaldrop-app` (`53` active sub-platform × CPU units + `1` reserved repository):**
      - `totaldrop-core`: Shared Rust protocol (`totaldrop-proto`), hybrid PQC
        cryptography (`totaldrop-crypto`), transfer engine (`totaldrop-core`),
        Ghost Ring primitives, single-source 35-language `l10n/` + `l10n-codegen`,
@@ -18,7 +18,7 @@
      - `totaldrop-servers`: Cloudflare Rendezvous & Relay Workers plus
        self-hostable Rust servers (`x86_64` and `arm64`).
      - `totaldrop-site`: `totaldrop.app` Cloudflare Pages static site with 35
-       per-language URLs and embedded Web client integration.
+       per-language URLs and localized privacy policy.
      - `totaldrop-linux`: Native Qt 6 / Wayland desktop client (`16` isolated
        units: `deb`, `rpm`, `tar-gz`, `arch` × `x86_64`, `arm64`, `riscv64` +
        `flatpak`, `appimage` × `x86_64`, `arm64`).
@@ -35,8 +35,12 @@
      - `totaldrop-cli-bsd`: Standalone CLI & BSD packages (`9` isolated units:
        `static-tar-gz`, `freebsd-pkg`, `openbsd-pkg` × `x86_64`, `arm64`,
        `riscv64`).
-     - `totaldrop-web-wasm`: Zero-framework Rust/WASM browser client (`2`
-       isolated units: `wasm32-simd128`, `wasm32-baseline`).
+     - `totaldrop-web-wasm`: **Reserved / shelved (`Not planned`).** A browser
+       receiver (`totaldrop#30`) is not planned and conflicts with threat model
+       `T9` (both Rendezvous and Relay servers reject WebSocket upgrades
+       carrying an `Origin` header with HTTP `403`, per `totaldrop#453`). Remains
+       unimplemented and undeployed unless a dedicated future ADR and `T9`
+       threat-model revision are accepted.
   2. **Sub-Platform × CPU Isolation Contract:** Inside each platform repository,
      every `subplatforms/<format>/<arch>/` unit owns its deterministic build
      recipe (`SOURCE_DATE_EPOCH`), dedicated GitHub Actions workflow, independent
